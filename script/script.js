@@ -23,7 +23,7 @@ document.querySelector('form').addEventListener('submit', verwerkFormulier);
 
 //functie voor het bijwerken van de foto in de pokeball
 function picabijwerken(hongerWaarde, trainWaarde, aaiWaarde) {
-    
+
     var picapiccaArray = [ 
         'blijepica.png', 
         'pica.png', 
@@ -34,7 +34,7 @@ function picabijwerken(hongerWaarde, trainWaarde, aaiWaarde) {
         'bozepica.png'
       ];
 
-    //als alle waardes gelijk of hoger zijn dan 90
+    //als trainwaarde gelijk of hoger zijn dan 90
     if (trainWaarde >= 90) {
         console.log("gespierde pica");
         document.getElementById('picafoto').src = "./fotos/" + picapiccaArray[2];
@@ -73,14 +73,14 @@ function picabijwerken(hongerWaarde, trainWaarde, aaiWaarde) {
                 playdoodaudio.volume = 0.2;
 
                 //Veranderd de achtergrond
-                document.body.style.backgroundImage = "url('./fotos/achtergrond3.png')";
+                document.body.style.backgroundImage = "url('./fotos/achtergrond3.gif')";
             } else {
                 //veranderd de foto naar een depresieve picachu
                 console.log("depri");
                 document.getElementById('picafoto').src = "./fotos/" + picapiccaArray[3];
 
                 //Veranderd de achtergrond
-                document.body.style.backgroundImage = "url('./fotos/achtergrond3.png')";
+                document.body.style.backgroundImage = "url('./fotos/achtergrond3.gif')";
             }
         }
         //wanneer de waardes tussen de 20 en 50 zitten
@@ -112,16 +112,16 @@ function lowerValue (hongerWaarde, trainWaarde, aaiWaarde) {
 //Check of de foto bijgewerkt moet worden
     picabijwerken(hongerWaarde, trainWaarde, aaiWaarde);
 
-    // Als één van de waardes 0 of kleiner dan 0 is
+    // Als één van de waardes 0 of kleiner dan 0 is dan stopt de tamagochi
     if (hongerWaarde <= 0 || trainWaarde <= 0 || aaiWaarde <= 0) {
-        clearInterval(start); // Stopt de pokemon
+        clearInterval(start);
 
         // zet de buttons "uit"
         document.getElementById('voedselButton').disabled = true;
         document.getElementById('trainButton').disabled = true;
         document.getElementById('aaiButton').disabled = true;
 
-        //Nieuwe text voor in de h2
+        //Nieuwe text voor in de h2 die angeeft dat pokemon is overleden
         document.querySelector('h2').textContent = 'oh shit,' + document.querySelector('h1').textContent + ' is dede :(';
 
         //Haal de restart button tevoorschijn
