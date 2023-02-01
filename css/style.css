@@ -22,7 +22,8 @@ form {
     background-color: #b6faf9;
     font-family: vcr;
     text-decoration-color: black;
-    border: 0px;
+    border-width : 1px;
+    border-color: whitesmoke;
     padding: 1em;
     border-radius: 10px;
 }
@@ -38,8 +39,8 @@ h1 {
     font-family: vcr;
     font-size: 2em;
     position: absolute;
-    left: 50%;
-    top: 15%;
+    left: 56%;
+    top: 22%;
     transform: translate(-50%, -50%);
 }
 
@@ -168,10 +169,12 @@ h2 {
         font-size: 2em;
         text-decoration: none;
         
-        background-color: Transparent;
-        border: none;
-        outline:none;  
+        background-color: green;  
         cursor:pointer;
+        border: black;
+        border-radius: 5%;
+        cursor:pointer;
+        padding: 1%;
         
         margin-left: -3.5em;
     }
@@ -179,6 +182,11 @@ h2 {
     #restartButton:hover {
         color: whitesmoke;
         font-family: vcr;
+            border: black;
+    border-radius: 5%;
+    cursor:pointer;
+    padding: 1%;
+    background-color: whitesmoke;
     }
 
 

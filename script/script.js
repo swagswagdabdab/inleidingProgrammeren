@@ -31,7 +31,8 @@ function picabijwerken(hongerWaarde, trainWaarde, aaiWaarde) {
         'depripica.png', 
         'dikkepica.png', 
         'dodepica.png', 
-        'bozepica.png'
+        'bozepica.png',
+        'cutepica.png'
       ];
 
     //als trainwaarde gelijk of hoger zijn dan 90
@@ -41,11 +42,27 @@ function picabijwerken(hongerWaarde, trainWaarde, aaiWaarde) {
         document.body.style.backgroundImage = "url('./fotos/achtergrond2.png')";
     }
 
+    //als honherwaarde gelijk of hoger zijn dan 90
+    else if (hongerWaarde >= 90) {
+        console.log("dikke pica");
+        document.getElementById('picafoto').src = "./fotos/" + picapiccaArray[4];
+        document.body.style.backgroundImage = "url('./fotos/achtergrond4.png')";
+    }
+
+    //als aaiwaarde gelijk of hoger zijn dan 90
+    else if (aaiWaarde >= 90) {
+        console.log("cute pica");
+        document.getElementById('picafoto').src = "./fotos/" + picapiccaArray[7];
+        document.body.style.backgroundImage = "url('./fotos/picainlove.png')";
+    }
+
+
     //als alle waardes gelijk of hoger zijn dan 80
     else if (hongerWaarde >= 70 && trainWaarde >= 70 && aaiWaarde >= 70) {
         //vervangt de foto voor een blije picachu
         console.log("blijepica");
         document.getElementById('picafoto').src = "./fotos/" + picapiccaArray[0];
+        document.body.style.backgroundImage = "url('./fotos/achtergrond1.png')";
     }
 
     //als de waardes gelijk aan of hoger zijn dan 50
