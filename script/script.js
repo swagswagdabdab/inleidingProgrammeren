@@ -9,21 +9,22 @@ var trainKnop = document.getElementById('trainButton');
 var aaiKnop = document.getElementById('aaiButton');
 
 //invoer naam pica
-var naam = 'naamPica';
-naam = 'naam van de Pokemon';
+var naam = 'naam van de Pokemon';
 document.querySelector('h1').textContent = naam;
 
-
+//wijzigd text inhoud h1 en voorkomt defaultgedrag formulier
 function verwerkFormulier(event) {
     event.preventDefault();
     document.querySelector('h1').textContent = document.querySelector('input').value;
 }
 
+//voegt event listner toe aan form, luisterd naar submit en die voert vervolgens verwerkformulier functie uit
 document.querySelector('form').addEventListener('submit', verwerkFormulier);
 
 //functie voor het bijwerken van de foto in de pokeball
 function picabijwerken(hongerWaarde, trainWaarde, aaiWaarde) {
 
+    //array van alle pica foto's
     var picapiccaArray = [ 
         'blijepica.png', 
         'pica.png', 
@@ -39,21 +40,24 @@ function picabijwerken(hongerWaarde, trainWaarde, aaiWaarde) {
     if (trainWaarde >= 90) {
         console.log("gespierde pica");
         document.getElementById('picafoto').src = "./fotos/" + picapiccaArray[2];
-        document.body.style.backgroundImage = "url('./fotos/achtergrond2.png')";
+
+        document.querySelector('body').classList.remove('achtergrond');
+        document.querySelector('body').classList.add('achtergrond2');
     }
 
     //als honherwaarde gelijk of hoger zijn dan 90
     else if (hongerWaarde >= 90) {
         console.log("dikke pica");
         document.getElementById('picafoto').src = "./fotos/" + picapiccaArray[4];
-        document.body.style.backgroundImage = "url('./fotos/achtergrond4.png')";
+        document.querySelector('body').classList.remove('achtergrond');
+        document.querySelector('body').classList.add('achtergrond3');
     }
 
     //als aaiwaarde gelijk of hoger zijn dan 90
     else if (aaiWaarde >= 90) {
         console.log("cute pica");
-        document.getElementById('picafoto').src = "./fotos/" + picapiccaArray[7];
-        document.body.style.backgroundImage = "url('./fotos/picainlove.png')";
+        document.querySelector('body').classList.remove('achtergrond');
+        document.querySelector('body').classList.add('achtergrond4');
     }
 
 
@@ -62,7 +66,6 @@ function picabijwerken(hongerWaarde, trainWaarde, aaiWaarde) {
         //vervangt de foto voor een blije picachu
         console.log("blijepica");
         document.getElementById('picafoto').src = "./fotos/" + picapiccaArray[0];
-        document.body.style.backgroundImage = "url('./fotos/achtergrond1.png')";
     }
 
     //als de waardes gelijk aan of hoger zijn dan 50
@@ -90,15 +93,16 @@ function picabijwerken(hongerWaarde, trainWaarde, aaiWaarde) {
                 playdoodaudio.volume = 0.2;
 
                 //Veranderd de achtergrond
-                document.body.style.backgroundImage = "url('./fotos/achtergrond3.gif')";
+                document.querySelector('body').classList.remove('achtergrond');
+                document.querySelector('body').classList.add('achtergrond5');
             } else {
                 //veranderd de foto naar een depresieve picachu
                 console.log("depri");
                 document.getElementById('picafoto').src = "./fotos/" + picapiccaArray[3];
 
                 //Veranderd de achtergrond
-                document.body.style.backgroundImage = "url('./fotos/achtergrond3.gif')";
-            }
+                console.log("depri");
+                document.getElementById('picafoto').src = "./fotos/" + picapiccaArray[3];            }
         }
         //wanneer de waardes tussen de 20 en 50 zitten
         else {
@@ -107,7 +111,8 @@ function picabijwerken(hongerWaarde, trainWaarde, aaiWaarde) {
             document.getElementById('picafoto').src = "./fotos/" + picapiccaArray[6];
 
             //Veranderd de achtergrond
-            document.body.style.backgroundImage = "url('./fotos/achtergrond5.png')";
+            document.querySelector('body').classList.remove('achtergrond');
+            document.querySelector('body').classList.add('achtergrond6');
         }
     }
 
@@ -126,7 +131,7 @@ function lowerValue (hongerWaarde, trainWaarde, aaiWaarde) {
     aaiWaarde -= 5; // Verlaagt de aaiWaarde
     document.getElementById('aaiWaarde').value = aaiWaarde;
 
-//Check of de foto bijgewerkt moet worden
+    //Check of de foto bijgewerkt moet worden
     picabijwerken(hongerWaarde, trainWaarde, aaiWaarde);
 
     // Als één van de waardes 0 of kleiner dan 0 is dan stopt de tamagochi
@@ -139,7 +144,7 @@ function lowerValue (hongerWaarde, trainWaarde, aaiWaarde) {
         document.getElementById('aaiButton').disabled = true;
 
         //Nieuwe text voor in de h2 die angeeft dat pokemon is overleden
-        document.querySelector('h2').textContent = 'oh shit,' + document.querySelector('h1').textContent + ' is dede :(';
+        document.querySelector('h2').textContent = 'oh shit,' + document.querySelector('h1').textContent + 'is dede :(';
 
         //Haal de restart button tevoorschijn
         document.getElementById('restartButtonDiv').classList.remove('verberg');

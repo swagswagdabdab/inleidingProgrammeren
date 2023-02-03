@@ -180,9 +180,9 @@ h2 {
     }
     
     #restartButton:hover {
-        color: whitesmoke;
-        font-family: vcr;
-            border: black;
+    color: whitesmoke;
+    font-family: vcr;
+    border: black;
     border-radius: 5%;
     cursor:pointer;
     padding: 1%;
@@ -208,3 +208,28 @@ h2 {
       .progressbar{
         padding-left: 5%;
       }
+
+      .achtergrond{
+        background-image: url('/inleidingProgrammeren/fotos/achtergrond1.png');
+    }
+
+    .achtergrond2{
+        background-image: url('/inleidingProgrammeren/fotos/achtergrond2.png');
+    }
+
+    .achtergrond3
+    {
+        background-image: url('/inleidingProgrammeren/fotos/achtergrond4.png');
+    }
+
+    .achtergrond4{
+        background-image: url('/inleidingProgrammeren/fotos/picainlove.png') ;
+    }
+
+    .achtergrond5{
+        background-image: url('/inleidingProgrammeren/fotos/achtergrond3.gif');
+    }
+
+    .achtergrond6{
+        background-image: url('/inleidingProgrammeren/fotos/achtergrond5.png');
+    }
